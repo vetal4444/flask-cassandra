@@ -2,7 +2,7 @@
 
 Flask-Cassandra provides an application-level connection to an Apache Cassandra database.  This connection can be used to interact with a Cassandra cluster.
 
-Flask-Cassandra requires both Flask and the [Datastax Python Driver for Apache Cassandra](https://github.com/datastax/python-driver) to be installed.  This driver will be installed automatically when running `setup.py install`.
+Flask-Cassandra requires both Flask and the [Datastax Python Driver for Apache Cassandra](https://github.com/datastax/python-driver) to be installed.  This driver will be installed automatically when installing via `pip` or when running `setup.py install`.
 
 ## Installation
 
@@ -42,3 +42,7 @@ if __name__ == '__main__':
     app.run()
 
 ```
+
+## Contributions
+
+If you would like to extend the functionality of the extension, pull requests are most welcome.
