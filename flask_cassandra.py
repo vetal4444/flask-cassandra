@@ -10,7 +10,7 @@
     :license: BSD, see LICENSE for more details.
 '''
 
-__version_info__ = ('0', '1', '2')
+__version_info__ = ('0', '1', '3')
 __version__ = '.'.join(__version_info__)
 __author__ = 'Michael Moore'
 __license__ = 'BSD'
@@ -48,7 +48,7 @@ class CassandraCluster(object):
         if isinstance(current_app.config['CASSANDRA_NODES'], (list, tuple)):
             cluster = Cluster(current_app.config['CASSANDRA_NODES'])
         elif isinstance(current_app.config['CASSANDRA_NODES'], (str, unicode)):
-            return Cluster([current_app.config['CASSANDRA_NODES']])
+            cluster = Cluster([current_app.config['CASSANDRA_NODES']])
         else:
             raise TypeError("CASSANDRA_NODES must be defined as a list, tuple, string, or unicode object.")
 

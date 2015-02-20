@@ -12,7 +12,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Cassandra',
-    version='0.12',
+    version='0.13',
     url='http://terbiumlabs.com/flask-cassandra/',
     license='BSD',
     author='Michael Moore',
