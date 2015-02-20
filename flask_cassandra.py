@@ -1,3 +1,21 @@
+# -*- coding: utf-8 -*-
+'''
+    flask-cassandra
+    ---------------
+    Flask-Cassandra provides an application-level connection 
+    to an Apache Cassandra database. This connection can be 
+    used to interact with a Cassandra cluster.
+
+    :copyright: (c) 2015 by Terbium Labs.
+    :license: BSD, see LICENSE for more details.
+'''
+
+__version_info__ = ('0', '1', '1')
+__version__ = '.'.join(__version_info__)
+__author__ = 'Michael Moore'
+__license__ = 'BSD'
+__copyright__ = '(c) 2015 by TerbiumLabs'
+
 from cassandra.cluster import Cluster
 import logging
 

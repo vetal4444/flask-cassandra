@@ -2,7 +2,10 @@
 Flask-Cassandra
 -------------
 
-This is the description for that library
+Flask-Cassandra provides an application-level connection 
+to an Apache Cassandra database. This connection can be 
+used to interact with a Cassandra cluster.
+
 """
 from setuptools import setup
 
