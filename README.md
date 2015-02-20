@@ -6,7 +6,12 @@ Flask-Cassandra requires both Flask and the [Datastax Python Driver for Apache C
 
 ## Installation
 
-Install the extension with one of the following commands:
+The easiest way to use the extension is to install it from [PyPI](https://pypi.python.org/pypi/Flask-Cassandra) using pip:
+```sh
+$ pip install flask-cassandra
+```
+
+You can also install the extension directly from source.
 
 ```sh
 $ python setup.py install
