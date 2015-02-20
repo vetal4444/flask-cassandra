@@ -10,7 +10,7 @@
     :license: BSD, see LICENSE for more details.
 '''
 
-__version_info__ = ('0', '1', '1')
+__version_info__ = ('0', '1', '2')
 __version__ = '.'.join(__version_info__)
 __author__ = 'Michael Moore'
 __license__ = 'BSD'
@@ -58,7 +58,7 @@ class CassandraCluster(object):
     def teardown(self, exception):
         ctx = stack.top
         if hasattr(ctx, 'cassandra_cluster'):
-            ctx.sqlite3_db.shutdown()
+            ctx.cassandra_cluster.shutdown()
 
     @property
     def connection(self):
