@@ -29,6 +29,12 @@ except ImportError:
     from flask import _request_ctx_stack as stack
 
 
+try:
+    unicode
+except NameError:  # Python3
+    unicode = str
+
+
 class CassandraCluster(object):
 
     def __init__(self, app=None):
