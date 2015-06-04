@@ -2,15 +2,15 @@
 '''
     flask-cassandra
     ---------------
-    Flask-Cassandra provides an application-level connection 
-    to an Apache Cassandra database. This connection can be 
+    Flask-Cassandra provides an application-level connection
+    to an Apache Cassandra database. This connection can be
     used to interact with a Cassandra cluster.
 
     :copyright: (c) 2015 by Terbium Labs.
     :license: BSD, see LICENSE for more details.
 '''
 
-__version_info__ = ('0', '1', '3')
+__version_info__ = ('0', '1', '4')
 __version__ = '.'.join(__version_info__)
 __author__ = 'Michael Moore'
 __license__ = 'BSD'
@@ -33,6 +33,7 @@ class CassandraCluster(object):
 
     def __init__(self, app=None):
         self.app = app
+        self.cluster = None
         if app is not None:
             self.init_app(app)
 
@@ -45,14 +46,15 @@ class CassandraCluster(object):
 
     def connect(self):
         log.debug("Connecting to CASSANDRA NODES {}".format(current_app.config['CASSANDRA_NODES']))
-        if isinstance(current_app.config['CASSANDRA_NODES'], (list, tuple)):
-            cluster = Cluster(current_app.config['CASSANDRA_NODES'])
-        elif isinstance(current_app.config['CASSANDRA_NODES'], (str, unicode)):
-            cluster = Cluster([current_app.config['CASSANDRA_NODES']])
-        else:
-            raise TypeError("CASSANDRA_NODES must be defined as a list, tuple, string, or unicode object.")
+        if self.cluster is None:
+            if isinstance(current_app.config['CASSANDRA_NODES'], (list, tuple)):
+                self.cluster = Cluster(current_app.config['CASSANDRA_NODES'])
+            elif isinstance(current_app.config['CASSANDRA_NODES'], (str, unicode)):
+                self.cluster = Cluster([current_app.config['CASSANDRA_NODES']])
+            else:
+                raise TypeError("CASSANDRA_NODES must be defined as a list, tuple, string, or unicode object.")
 
-        online_cluster = cluster.connect()
+        online_cluster = self.cluster.connect()
         return online_cluster
 
     def teardown(self, exception):
